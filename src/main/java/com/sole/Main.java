@@ -37,18 +37,26 @@ public class Main {
 
         //Ejercicio Set: "avisar por todos los canales posibles"
         //Creo un Set para evitar las duplicaciones por error
-        Set<Notifier> availableChannels = Set.of(new SMSNotifier(), new EmailNotifier());
+        //Set<Notifier> availableChannels = Set.of(new SMSNotifier(), new EmailNotifier());
 
-        String alertMessage = "Se detectó un inicio de sesión sospechoso en su cuenta";
+        //String alertMessage = "Se detectó un inicio de sesión sospechoso en su cuenta";
 
-        availableChannels.forEach(c -> c.notify(alertMessage));
+        //availableChannels.forEach(c -> c.notify(alertMessage));
 
         //Ejercicio Map: "elegir un canal segun el mensaje a enviar"
 
-        Map<MessageType, Notifier> canales = Map.of(MessageType.URGENTE, new SMSNotifier(), MessageType.MARKETING, new EmailNotifier());
+        //Map<MessageType, Notifier> canales = Map.of(MessageType.URGENTE, new SMSNotifier(), MessageType.MARKETING, new EmailNotifier());
 
-        Notifier notificador = canales.get(MessageType.URGENTE);
-        notificador.notify(alertMessage);
+        //Notifier notificador = canales.get(MessageType.URGENTE);
+        //notificador.notify(alertMessage);
+
+        //Ejercico excepciones
+
+        try {
+            BankValidator.validateAccountInformation("1234567890123456789012", -100.0);
+        } catch (InvalidAccount e) {
+            System.err.println("Error de validación: " + e.getMessage());
+        }
     }
 
     public static List<Integer> obtenerPares(List<Integer> numeros) {
